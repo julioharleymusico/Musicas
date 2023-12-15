@@ -1,0 +1,231 @@
+/* Reset CSS básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Defina variáveis para facilitar ajustes */
+:root {
+    --largura-borda-link: 1px; /* Ajuste conforme necessário */
+    --destaque-barra-links: 10px; /* Ajuste a intensidade do destaque conforme necessário */
+}
+
+/* Estilo global */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 20px 0 20px 50px;
+    padding: 20px 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    background-image: url('./img1/Fundo.jpg');
+    background-color: rgba(255, 255, 255, 0.699);
+    background-size: 60%;
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    z-index: 1000;
+    overflow: hidden; /* Adiciona essa linha para ocultar a barra de rolagem */
+}
+
+/* Estilo do cabeçalho */
+header {
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Estilo de seção */
+section {
+    margin-top: 20px;
+}
+
+/* Barra de Nomes */
+.barra-nome {
+    background-color: #007bff00;
+    padding: 10px;
+    text-align: center;
+    font-family: 'SuaFonte', sans-serif;
+    color: #000000;
+}
+
+.nome {
+    font-family: 'SuaFonte', sans-serif;
+}
+
+/* Barra de Links */
+.barra-links {
+    border: var(--largura-borda-link) solid #007bff;
+    margin: 38px 0 0;
+    text-align: center;
+    background-color: #ffffffef;
+    box-shadow: 0 0 var(--destaque-barra-links) rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+/* Adicione borda aos links */
+.links a {
+    margin: 11px;
+    text-decoration: none;
+    color: #007bff;
+    display: flex;
+    align-items: center;
+    border: var(--largura-borda-link) solid #007bff;
+    padding: 10px;
+    width: 659px;
+    position: relative;
+}
+
+/* Adicione isso para definir o tamanho máximo das imagens na barra de links */
+.links img {
+    max-width: 80px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Adicione estilos para os nomes das plataformas */
+.links .plataforma-nome {
+    font-family: 'SuaFonte', sans-serif;
+    margin-right: 10px;
+    color: black;
+}
+
+/* Adicione botões Ouça e Assista */
+.links button {
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    font-size: 14px;
+    position: absolute;
+    right: 10px;
+    background-color: #000000;
+    color: #fff;
+}
+
+/* Estilo dos botões quando o mouse está sobre */
+.links a:hover button {
+    opacity: 0.8;
+    background-color: #ac0000;
+}
+
+/* Estilo dos botões quando estão sendo clicados */
+.links button:active {
+    background-color: #0056b3;
+}
+
+/* Barra de Compartilhamento - Ícones aparecem apenas em dispositivos móveis */
+.barra-compartilhamento {
+    display: none;
+}
+
+/* Exibe a barra de compartilhamento apenas em dispositivos móveis */
+.barra-links.mobile .barra-compartilhamento {
+    display: flex;
+    background-color: #fff;
+    padding: 10px 0;
+    justify-content: center;
+    width: 100%; /* Garante que a barra de links ocupe a largura total */
+    position: relative;
+    left: 20px; /* Adiciona um deslocamento para a direita */
+}
+
+.barra-links.mobile .barra-compartilhamento a {
+    margin: 0 10px;
+}
+
+.barra-links.mobile .barra-compartilhamento img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+/* Estilo de rodapé */
+footer {
+    text-align: center;
+    color: #000000;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    background-color: #ffffff00;
+    border-top: 1px solid #ccc;
+}
+
+/* Estilo da seta esquerda */
+.seta-esquerda-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.seta-esquerda-btn img {
+    width: 40px;
+    height: auto;
+}
+
+@font-face {
+    font-family: 'SuaFonte';
+    src: url('./font1/dirtyoldtown.ttf') format('truetype');
+    font-weight: normal;
+}
+
+/* Media queries para tornar o design responsivo */
+@media only screen and (max-width: 768px) {
+    body {
+        margin: 20px;
+        background-size: 100%;
+        background-position: center;
+        background-position-y: 100%;
+    }
+
+    .barra-links {
+        margin-top: 30px;
+        position: relative;
+        padding: 10px;
+    }    
+
+    .links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .links a {
+        width: calc(100% - 2px);
+        box-sizing: border-box;
+        margin: 5px 0;
+    }
+
+    .barra-links:not(.mobile) .barra-compartilhamento {
+        display: none;
+    }
+
+    .barra-links.mobile .barra-compartilhamento {
+        display: flex;
+        background-color: #ffffff00;
+        padding: 10px 0;
+        justify-content: center;
+        width: 100%; /* Garante que a barra de links ocupe a largura total */
+        position: relative;
+        left: 20px; /* Adiciona um deslocamento para a direita */
+    }
+
+    .barra-links.mobile .barra-compartilhamento a {
+        margin: 0 10px;
+    }
+
+    .barra-links.mobile .barra-compartilhamento img {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+    }
+}

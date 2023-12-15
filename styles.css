@@ -1,0 +1,211 @@
+/* Reset CSS básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Defina variáveis para facilitar ajustes */
+:root {
+    --largura-borda-link: 1px; /* Ajuste conforme necessário */
+    --destaque-barra-links: 10px; /* Ajuste a intensidade do destaque conforme necessário */
+}
+
+/* Estilo global */
+body {
+    position: fixed;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 20px 0 20px 50px;
+    padding: 20px 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    background-image: url('./img/Fundo.png');
+    background-color: rgba(255, 255, 255, 0.699);
+    background-size: 257px;
+    background-position: 53% 0%;
+    left: 25%;
+    z-index: 1000;
+}
+
+/* Estilo do cabeçalho */
+header {
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Estilo de seção */
+section {
+    margin-top: 20px;
+}
+
+/* Barra de Nomes */
+.barra-nome {
+    background-color: #007bff00;
+    padding: 10px;
+    text-align: center;
+    font-family: 'SuaFonte', sans-serif;
+    color: #000000;
+}
+
+.nome {
+    font-family: 'SuaFonte', sans-serif;
+}
+
+/* Barra de Links */
+.barra-links {
+    border: var(--largura-borda-link) solid #007bff;
+    margin: 38px 0 0;
+    text-align: center;
+    background-color: #ffffffef;
+    box-shadow: 0 0 var(--destaque-barra-links) rgba(0, 0, 0, 0.1);
+    padding: 10px; /* Adicione espaçamento interno */
+}
+
+/* Adicione borda aos links */
+.links a {
+    margin: 11px;
+    text-decoration: none;
+    color: #007bff;
+    display: flex;
+    align-items: center;
+    border: var(--largura-borda-link) solid #007bff;
+    padding: 10px;
+    width: 659px;
+    position: relative;
+}
+
+/* Adicione isso para definir o tamanho máximo das imagens na barra de links */
+.links img {
+    max-width: 80px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Adicione estilos para os nomes das plataformas */
+.links .plataforma-nome {
+    font-family: 'SuaFonte', sans-serif; /* Substitua 'SuaFonte' pela fonte desejada */
+    margin-right: 10px; /* Adapte conforme necessário */
+    color: black; /* Adicione esta linha para definir a cor do texto para preto */
+}
+
+/* Adicione botões Ouça e Assista */
+.links button {
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    font-size: 14px; /* Ajuste o tamanho da fonte conforme necessário */
+    position: absolute;
+    right: 10px;
+    background-color: #000000;
+    color: #fff;
+}
+
+/* Estilo dos botões quando o mouse está sobre */
+.links a:hover button {
+    opacity: 0.8;
+    background-color: #ac0000;
+}
+
+/* Estilo dos botões quando estão sendo clicados */
+.links button:active {
+    background-color: #0056b3;
+}
+
+/* Barra de Compartilhamento - Ícones aparecem apenas em dispositivos móveis */
+.barra-compartilhamento {
+    display: none;
+}
+
+/* Exibe a barra de compartilhamento apenas em dispositivos móveis */
+.barra-links.mobile .barra-compartilhamento {
+    display: flex;
+    background-color: #fff;
+    padding: 10px 0;
+    justify-content: center;
+}
+
+.barra-links.mobile .barra-compartilhamento a {
+    margin: 0 10px;
+}
+
+.barra-links.mobile .barra-compartilhamento img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+/* Estilo de rodapé */
+footer {
+    text-align: center;
+    padding: 10px;
+    color: #000000;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    background-color: #ffffff00;
+    border-top: 1px solid #ccc; /* Adicione uma borda superior */
+}
+
+@font-face {
+    font-family: 'SuaFonte';
+    src: url('./font/stocky.ttf') format('truetype');
+    font-weight: normal;
+}
+
+/* Media queries para tornar o design responsivo */
+@media only screen and (max-width: 768px) {
+    body {
+        left: 0;
+        margin: 20px;
+    }
+
+    .barra-links {
+        margin-top: 0px;
+        width: calc(100% + 40px); /* Ajuste na largura total mais as margens */
+        position: relative; /* Alteração da posição para relative */
+        left: 20px; /* Ajuste o valor conforme necessário para mover a barra para a direita */
+        padding: 10px; /* Adicione espaçamento interno */
+    }    
+
+    .links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .links a {
+        width: calc(100% - 2px);
+        box-sizing: border-box;
+        margin: 5px 0;
+    }
+
+    /* Esconde os links de compartilhamento no modo desktop */
+    .barra-links:not(.mobile) .barra-compartilhamento {
+        display: none;
+    }
+
+    /* Exibe a barra de compartilhamento apenas em dispositivos móveis */
+    .barra-links.mobile .barra-compartilhamento {
+        display: flex;
+        background-color: #ffffff00; /* Ajuste a cor de fundo conforme necessário */
+        padding: 10px 0; /* Espaçamento interno da barra branca */
+        justify-content: center; /* Centraliza os ícones de compartilhamento */
+    }
+
+    .barra-links.mobile .barra-compartilhamento a {
+        margin: 0 10px;
+    }
+
+    .barra-links.mobile .barra-compartilhamento img {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+    }
+}
